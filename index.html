@@ -1,25 +1,171 @@
 <!DOCTYPE html>
 
-<div class="chart-example" id="chart"><svg id="svg"></svg></div>
-<button onclick="removeAndCall('VisSkills')">Visualization skills</button>
-<button onclick="removeAndCall('StatSkills')">Statistical skills</button>
-<button onclick="removeAndCall('MathSkills')">Math skills</button>
-<button onclick="removeAndCall('ArtSkills')">Art skills</button>
-<button onclick="removeAndCall('CompSkills')">Computer skills</button>
-<button onclick="removeAndCall('CodeSkills')">Coding skills</button>
-<button onclick="removeAndCall('GraphSkills')">Graphics skills</button>
-<button onclick="removeAndCall('MDISkills')">MDI/HCI skills</button>
-<button onclick="removeAndCall('EvalSkills')">Evaluation skills</button>
-<button onclick="removeAndCall('CommSkills')">Communication skills</button>
-<button onclick="removeAndCall('CollabSkills')">Collaboration skills</button>
-<button onclick="removeAndCall('RepoSkills')">Git/Repo skills</button>
-<button onclick="removeAndCallStudents()">All students</button>
+<head>
+        <link rel="stylesheet" type="text/css" href="bubble.css">
+</head>
+<div class="grid-container">
+    <div class="grid-item">
+        <div class="chart-example" id="chart"><svg id="svg"></svg></div>
+    </div>
+    <div class="grid-item tableItem" id="tableItem">
+            <table style="width:100%">
+                    <tr>
+                        <th onclick="addMember(1)">Group 1</th>
+                        <th onclick="addMember(2)">Group 2</th> 
+                        <th onclick="addMember(3)">Group 3</th>
+                        <th onclick="addMember(4)">Group 4</th>
+                        <th onclick="addMember(5)">Group 5</th> 
+                        <th onclick="addMember(6)">Group 6</th>
+                        <th onclick="addMember(7)">Group 7</th>
+                        <th onclick="addMember(8)">Group 8</th> 
+                        <th onclick="addMember(9)">Group 9</th>
+                        <th onclick="addMember(10)">Group 10</th>
+                    </tr>
+                    <tr>
+                        <td class="grp1">empty</td>
+                        <td class="grp2">empty</td>
+                        <td class="grp3">empty</td>
+                        <td class="grp4">empty</td>
+                        <td class="grp5">empty</td>
+                        <td class="grp6">empty</td>
+                        <td class="grp7">empty</td>
+                        <td class="grp8">empty</td>
+                        <td class="grp9">empty</td>
+                        <td class="grp10">empty</td>
+                    </tr>
+                    <tr>
+                        <td class="grp1">empty</td>
+                        <td class="grp2">empty</td>
+                        <td class="grp3">empty</td>
+                        <td class="grp4">empty</td>
+                        <td class="grp5">empty</td>
+                        <td class="grp6">empty</td>
+                        <td class="grp7">empty</td>
+                        <td class="grp8">empty</td>
+                        <td class="grp9">empty</td>
+                        <td class="grp10">empty</td>
+                    </tr>
+                    <tr>
+                        <td class="grp1">empty</td>
+                        <td class="grp2">empty</td>
+                        <td class="grp3">empty</td>
+                        <td class="grp4">empty</td>
+                        <td class="grp5">empty</td>
+                        <td class="grp6">empty</td>
+                        <td class="grp7">empty</td>
+                        <td class="grp8">empty</td>
+                        <td class="grp9">empty</td>
+                        <td class="grp10">empty</td>
+                    </tr>
+                    <tr>
+                        <td class="grp1">empty</td>
+                        <td class="grp2">empty</td>
+                        <td class="grp3">empty</td>
+                        <td class="grp4">empty</td>
+                        <td class="grp5">empty</td>
+                        <td class="grp6">empty</td>
+                        <td class="grp7">empty</td>
+                        <td class="grp8">empty</td>
+                        <td class="grp9">empty</td>
+                        <td class="grp10">empty</td>
+                    </tr>
+                    <tr>
+                        <td class="grp1">empty</td>
+                        <td class="grp2">empty</td>
+                        <td class="grp3">empty</td>
+                        <td class="grp4">empty</td>
+                        <td class="grp5">empty</td>
+                        <td class="grp6">empty</td>
+                        <td class="grp7">empty</td>
+                        <td class="grp8">empty</td>
+                        <td class="grp9">empty</td>
+                        <td class="grp10">empty</td>
+                    </tr>
+                    <tr>
+                        <td class="grp1">empty</td>
+                        <td class="grp2">empty</td>
+                        <td class="grp3">empty</td>
+                        <td class="grp4">empty</td>
+                        <td class="grp5">empty</td>
+                        <td class="grp6">empty</td>
+                        <td class="grp7">empty</td>
+                        <td class="grp8">empty</td>
+                        <td class="grp9">empty</td>
+                        <td class="grp10">empty</td>
+                    </tr>
+                  </table>
+                  <button class="cancelButt" onclick="refresh()">Refresh table</button>
+    </div>
+    <div class="grid-item buttons">
+    <button class="butt" onclick="removeAndCall('VisSkills'), removeTable()">Visualization skills</button>
+    <button class="butt" onclick="removeAndCall('StatSkills'), removeTable()">Statistical skills</button>
+    <button class="butt" onclick="removeAndCall('MathSkills'), removeTable()">Math skills</button>
+    <button class="butt" onclick="removeAndCall('ArtSkills'), removeTable()">Art skills</button>
+    <button class="butt" onclick="removeAndCall('CompSkills'), removeTable()">Computer skills</button>
+    <button class="butt" onclick="removeAndCall('CodeSkills'), removeTable()">Coding skills</button>
+    <button class="butt" onclick="removeAndCall('GraphSkills'), removeTable()">Graphics skills</button>
+    <button class="butt" onclick="removeAndCall('MDISkills'), removeTable()">MDI/HCI skills</button>
+    <button class="butt" onclick="removeAndCall('EvalSkills'), removeTable()">Evaluation skills</button>
+    <button class="butt" onclick="removeAndCall('CommSkills'), removeTable()">Communication skills</button>
+    <button class="butt" onclick="removeAndCall('CollabSkills'), removeTable()">Collaboration skills</button>
+    <button class="butt" onclick="removeAndCall('RepoSkills'), removeTable()">Git/Repo skills</button>
+    <button class="butt" onclick="removeAndCallStudents(), showTable()">All students</button>
+</div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
 <script src="bubble_chart.js"></script>
 <script src="callChart.js"></script>
 <script src="studentsChart.js"></script>
 <script>
+    var assignedStudents = [];
+    var currentStudent = "";
+    function showTable(){
+        var x = document.getElementById("tableItem");
+            x.style.display = "block";
+    }
+    function removeTable(){
+        var x = document.getElementById("tableItem");
+            x.style.display = "none";
+    }
+
+    function refresh(){
+    var elem;
+        for(var i = 0; i < 6; i++){
+            for(var j = 1; j < 10; j++){
+                elem = document.getElementsByClassName("grp" + j)[i];
+                elem.innerHTML = 'empty';
+            }
+        }
+        assignedStudents = [];
+        currentStudent = "";
+        console.log("REFRESHED");
+    }
+
+    function addMember(groupNr){
+        if(currentStudent === ""){
+            return;
+        }
+        for(var i = 0; i < assignedStudents.length; i++){
+            if(assignedStudents[i] === currentStudent){
+                return;
+            }
+        }
+        var elem;
+        for(var i = 0; i < 6; i++){
+            if(document.getElementsByClassName("grp" + groupNr)[i].innerHTML === "empty"){
+                elem = document.getElementsByClassName("grp" + groupNr)[i]
+                break;
+            }
+        }
+        if(!elem){
+            return;
+        }
+        elem.innerHTML = currentStudent;
+        assignedStudents.push(currentStudent);
+        currentStudent = "";
+    }
+
     removeAndCall('VisSkills');
     // Re-render chart through removing old elements and calling callChart() to render a new chart
     function removeAndCall(skillSet){

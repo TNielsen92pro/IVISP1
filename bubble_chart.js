@@ -147,6 +147,12 @@ function bubbleChart() {
 		})
 		.on("mouseout", function() {
 			return tooltip.style("visibility", "hidden");
+		})
+		.on("click", function(d){
+			if(showTitleOnCircle){
+			currentStudent = d[columnForTitle];
+			}
+			console.log(currentStudent);
 		});
 		node.append("clipPath")
 		.attr("id",function(d,i) {
@@ -156,6 +162,9 @@ function bubbleChart() {
 		.attr("xlink:href",function(d,i) {
 			return "#" + i;
 		});
+
+		
+		
 		if (showTitleOnCircle) {
 			node.append("text")
 			.attr("clip-path",function(d,i) {
@@ -170,10 +179,20 @@ function bubbleChart() {
 				return ".3em";//scaleRadius(d[columnForRadius])/4;
 			})
 			.text(function(d) {
-				return d[columnForTitle];
+				var initials = d[columnForTitle][0];
+				for(var i = 1; i < d[columnForTitle].length-2; i++){
+					if(d[columnForTitle][i] === " "){
+						initials = initials + d[columnForTitle][i+1];
+					}
+				}
+				return initials;
 			})
 			.on("mouseover", function(d) {
-				tooltip.html(d[columnForTitle] + "<br/>" + d[columnForColors] + "<br/>" + d[columnForRadius]) + " " + unitName;
+				if(d[totalSkill] > 0){
+					tooltip.html(d[columnForTitle] + "<br/>" + d[columnForColors] + ": " + d[totalSkill] + "<br/>" + unitName + " " + d[columnForRadius]);				
+				}else{
+					tooltip.html(d[columnForTitle] + "<br/>" + d[columnForColors] + "<br/>" + unitName + " " + d[columnForRadius]);
+				}
 				return tooltip.style("visibility", "visible");
 			})
 			.on("mousemove", function() {
@@ -181,6 +200,10 @@ function bubbleChart() {
 			})
 			.on("mouseout", function() {
 				return tooltip.style("visibility", "hidden");
+			})
+			.on("click", function(d){
+				currentStudent = d[columnForTitle];
+				console.log(currentStudent);
 			});
 		}
 

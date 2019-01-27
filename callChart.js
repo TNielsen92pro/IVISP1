@@ -62,6 +62,10 @@ function callChart(skillSet){
     let leastSkilledGroup = 0;
     data.sort(function(a, b){return a[skill]-b[skill]});
     for(let i = 0; i < 57; i++){
+        if(data[i].Name[data[i].Name.length-1] === " "){
+            data[i].Name = data[i].Name.slice(0, data[i].Name.length-1);
+        }
+        data[i].Name = " " + data[i].Name;
         for(let j = 0; j < 10; j++){
             if(groups[j].totalSkill < groups[leastSkilledGroup].totalSkill){
                 leastSkilledGroup = j;
@@ -70,10 +74,10 @@ function callChart(skillSet){
         groups[leastSkilledGroup].members.push(data[i].Name);
         groups[leastSkilledGroup].totalSkill += +data[i][skill];
     }
+    
 
     var chart = bubbleChart().width(1200).height(600).title("Group based on " + skill);      
     chart.columnForTitle("members").columnForColors("nr").columnForRadius("totalSkill").unitName("Total " + skill + ":");
-
     // selection.datum() returns the bound datum for the first element in the selection and doesn't join the specified array of data with the selected elements
     d3.select('#chart').datum(groups).call(chart);
     });
